@@ -4,15 +4,21 @@ on:
   workflow_dispatch:
   # schedule:
   #   - 
-
+concurrency: 
+  group: abcd
+  cancel-in-progress: false
 env:
   ACCESS_ID: ${{ vars.ACCESS_ID }}
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 1
+    
 
     steps:
     - name: Echo ACCESS_ID
+      timeout-minutes: 1
 
       run: echo $ACCESS_ID
+
